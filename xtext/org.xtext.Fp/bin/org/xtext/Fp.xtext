@@ -1,0 +1,140 @@
+grammar org.xtext.Mycnl with org.eclipse.xtext.xbase.Xbase
+generate fp "http://www.xtext.org/Fp"
+
+DomainModel:
+	(elements+=Model)*
+;
+
+Model:
+	query+=Query
+;
+
+Query:
+	findtempBuilAction | findtempDemolish | findtempPlantTrees | findtempCutTrees 
+	| findtempPlantBushes | findtempRemoveBushes | findtempCreateLake 
+	| findtempRemoveLake | caltreesBuildAction 
+	| DesignCommercial | DesignResidential | DesignEducational | showRegion
+;
+
+showRegion:
+	'show' 'details' 'of' 'region' region = INT | 'Show' 'Details' 'Of' 'Region' region = INT 
+	| 'Show' 'Details' 'of' 'Region' region = INT | 'SHOW' 'DETAILS' 'OF' 'REGION' region = INT 
+	| 'show' 'details' 'of' 'Region' region = INT  | 'Show' 'details' 'of' 'region' region = INT 
+	|'Show' 'details' 'of' 'Region' region = INT 
+;
+
+findtempBuilAction:
+'what' 'will' 'be' 'the' 'temperature' 'if' 'we' 'build' no_of_buildings = INT 'buildings' 'of' 'dimensions'
+length = INT 'x' breadth = INT 'x' height = INT 'in' 'region' region = INT 
+|'What' 'Will' 'Be' 'The' 'Temperature' 'If' 'We' 'Build' no_of_buildings = INT 'Buildings' 'Of' 'Dimensions'
+length = INT 'x' breadth = INT 'x' height = INT 'In' 'Region' region = INT 
+|'What' 'will' 'be' 'the' 'temperature' 'if' 'we' 'build' no_of_buildings = INT 'buildings' 'of' 'dimensions'
+length = INT 'x' breadth = INT 'x' height = INT 'in' 'region' region = INT
+|'WHAT' 'WILL' 'BE' 'THE' 'TEMPERATURE' 'IF' 'WE' 'BUILD' no_of_buildings = INT 'BUILDINGS' 'OF' 'DIMENSIONS'
+length = INT 'x' breadth = INT 'x' height = INT 'IN' 'REGION' region = INT 
+|'What' 'Will' 'be' 'the' 'Temperature' 'if' 'we' 'Build' no_of_buildings = INT 'Buildings' 'of' 'Dimensions'
+length = INT 'x' breadth = INT 'x' height = INT 'in' 'Region' region = INT ;
+
+caltreesBuildAction:
+'how' 'many' 'trees' 'to' 'be' 'planted' 'if' 'we' 'build' no_of_buildings = INT
+'of' 'dimensions' length = INT 'x' breadth = INT 'x' height = INT 'in' 'region' region = INT
+|'How' 'many' 'trees' 'to' 'be' 'planted' 'if' 'we' 'build' no_of_buildings = INT
+'of' 'dimensions' length = INT 'x' breadth = INT 'x' height = INT 'in' 'region' region = INT
+|'How' 'Many' 'Trees' 'To' 'Be' 'Planted' 'If' 'We' 'Build' no_of_buildings = INT
+'Of' 'Dimensions' length = INT 'x' breadth = INT 'x' height = INT 'In' 'Region' region = INT
+|'HOW' 'MANY' 'TREES' 'TO' 'BE' 'PLANTED' 'IF' 'WE' 'BUILD' no_of_buildings = INT
+'OF' 'DIMENSIONS' length = INT 'x' breadth = INT 'x' height = INT 'IN' 'REGION' region = INT
+|'How' 'Many' 'Trees' 'to' 'be' 'Planted' 'if' 'we' 'Build' no_of_buildings = INT
+'of' 'Dimensions' length = INT 'x' breadth = INT 'x' height = INT 'in' 'Region' region = INT;
+ 
+DesignResidential:
+'what' 'will' 'be' 'the' 'design' 'plan' 'for' 'residential' 'area' 'for' no_of_people = INT 'people' 'in' 'region' 
+region = INT
+|'What' 'Will' 'Be' 'The' 'Design' 'Plan' 'For' 'Residential' 'Area' 'For' no_of_people = INT 'People' 'In' 'Region' 
+region = INT
+|'What' 'will' 'be' 'the' 'design' 'plan' 'for' 'residential' 'area' 'for' no_of_people = INT 'people' 'in' 'region' 
+region = INT
+|'WHAT' 'WILL' 'BE' 'THE' 'DESIGN' 'PLAN' 'FOR' 'RESIDENTIAL' 'AREA' 'FOR' no_of_people = INT 'PEOPLE' 'IN' 'REGION' 
+region = INT
+|'What' 'Will' 'be' 'the' 'Design' 'Plan' 'for' 'Residential' 'Area' 'For' no_of_people = INT 'People' 'in' 'Region' 
+region = INT;
+
+findtempDemolish:
+'what' 'will' 'be' 'the' 'temperature' 'if' 'we' 'demolish' no_of_buildings = INT 'buildings' ('of' 'dimensions'
+length = INT 'x' breadth = INT 'x' height = INT)? 'in' 'region' region = INT
+|'What' 'will' 'be' 'the' 'temperature' 'if' 'we' 'demolish' no_of_buildings = INT 'buildings' ('of' 'dimensions'
+length = INT 'x' breadth = INT 'x' height = INT)? 'in' 'region' region = INT
+|'What' 'Will' 'Be' 'The' 'Temperature' 'If' 'We' 'Demolish' no_of_buildings = INT 'Buildings' ('Of' 'Dimensions'
+length = INT 'x' breadth = INT 'x' height = INT)? 'In' 'Region' region = INT
+|'WHAT' 'WILL' 'BE' 'THE' 'TEMPERATURE' 'IF' 'WE' 'DEMOLISH' no_of_buildings = INT 'BUILDINGS' ('OF' 'DIMENSIONS'
+length = INT 'x' breadth = INT 'x' height = INT)? 'IN' 'REGION' region = INT
+|'What' 'Will' 'be' 'the' 'Temperature' 'if' 'we' 'Demolish' no_of_buildings = INT 'Buildings' ('of' 'Dimensions'
+length = INT 'x' breadth = INT 'x' height = INT)? 'in' 'Region' region = INT;
+
+findtempPlantTrees:
+'what' 'will' 'be' 'the' 'temperature' 'if' 'we' 'plant' no_of_trees = INT 'trees' 'in' 'region' region =INT
+|'What' 'will' 'be' 'the' 'temperature' 'if' 'we' 'plant' no_of_trees = INT 'trees' 'in' 'region' region =INT
+|'What' 'Will' 'Be' 'The' 'Temperature' 'If' 'We' 'Plant' no_of_trees = INT 'Trees' 'In' 'Region' region =INT
+|'WHAT' 'WILL' 'BE' 'THE' 'TEMPERATURE' 'IF' 'WE' 'PLANT' no_of_trees = INT 'TREES' 'IN' 'REGION' region =INT
+|'What' 'Will' 'be' 'the' 'Temperature' 'if' 'we' 'Plant' no_of_trees = INT 'Trees' 'in' 'Region' region =INT
+;
+
+findtempCutTrees:
+'what' 'will' 'be' 'the' 'temperature' 'if' 'we' 'cut' no_of_trees = INT 'trees' 'in' 'region' region =INT
+|'What' 'will' 'be' 'the' 'temperature' 'if' 'we' 'cut' no_of_trees = INT 'trees' 'in' 'region' region =INT
+|'What' 'Will' 'Be' 'The' 'Temperature' 'If' 'We' 'Cut' no_of_trees = INT 'Trees' 'In' 'Region' region =INT
+|'WHAT' 'WILL' 'BE' 'THE' 'TEMPERATURE' 'IF' 'WE' 'CUT' no_of_trees = INT 'TREES' 'in' 'REGION' region =INT
+|'What' 'Will' 'be' 'the' 'Temperature' 'if' 'we' 'Cut' no_of_trees = INT 'Trees' 'in' 'Region' region =INT
+;
+
+findtempPlantBushes:
+'what' 'will' 'be' 'the' 'temperature' 'if' 'we' 'plant' 'bushes' 'in' area = INT 'square' 'meter' 'area' 'in' 'region' region = INT
+|'What' 'will' 'be' 'the' 'temperature' 'if' 'we' 'plant' 'bushes' 'in' area = INT 'square' 'meter' 'area' 'in' 'region' region = INT
+|'What' 'Will' 'Be' 'The' 'Temperature' 'If' 'We' 'Plant' 'Bushes' 'In' area = INT 'Square' 'Meter' 'Area' 'In' 'Region' region = INT
+|'What' 'Will' 'be' 'the' 'Temperature' 'if' 'we' 'Plant' 'Bushes' 'in' area = INT 'Square' 'Meter' 'Area' 'in' 'Region' region = INT
+|'WHAT' 'WILL' 'BE' 'THE' 'TEMPERATURE' 'IF' 'WE' 'PLANT' 'BUSHES' 'IN' area = INT 'SQUARE' 'METER' 'AREA' 'IN' 'REGION' region = INT
+;
+
+findtempRemoveBushes:
+'what' 'will' 'be' 'the' 'temperature' 'if' 'we' 'remove' 'bushes' 'in' area = INT 'square' 'meter' 'area' 'in' 'region' region = INT
+|'What' 'will' 'be' 'the' 'temperature' 'if' 'we' 'remove' 'bushes' 'in' area = INT 'square' 'meter' 'area' 'in' 'region' region = INT
+|'What' 'Will' 'Be' 'The' 'Temperature' 'If' 'We' 'Remove' 'Bushes' 'In' area = INT 'Square' 'Meter' 'Area' 'In' 'Region' region = INT
+|'What' 'Will' 'be' 'the' 'Temperature' 'if' 'we' 'Remove' 'Bushes' 'in' area = INT 'Square' 'Meter' 'Area' 'in' 'Region' region = INT
+|'WHAT' 'WILL' 'BE' 'THE' 'TEMPERATURE' 'IF' 'WE' 'REMOVE' 'BUSHES' 'IN' area = INT 'SQUARE' 'METER' 'AREA' 'IN' 'REGION' region = INT
+;
+
+findtempCreateLake:
+'what' 'will' 'be' 'the' 'temperature' 'if' 'we' 'create' 'lake' 'over' 'area' area = INT 'square' 'meter' 'in' 'region' region = INT  
+|'What' 'will' 'be' 'the' 'temperature' 'if' 'we' 'create' 'lake' 'over' 'area' area = INT 'square' 'meter' 'in' 'region' region = INT
+|'what' 'will' 'be' 'the' 'Temperature' 'If' 'We' 'Create' 'Lake' 'Over' 'Area' area = INT 'Square' 'Meter' 'In' 'Region' region = INT
+|'what' 'will' 'be' 'the' 'Temperature' 'if' 'we' 'Create' 'Lake' 'Over' 'Area' area = INT 'Square' 'Meter' 'in' 'Region' region = INT
+|'WHAT' 'WILL' 'BE' 'THE' 'TEMPERATURE' 'IF' 'WE' 'CREATE' 'LAKE' 'OVER' 'AREA' area = INT 'SQUARE' 'METER' 'IN' 'REGION' region = INT
+;
+
+findtempRemoveLake:
+'what' 'will' 'be' 'the' 'temperature' 'if' 'we' 'remove' 'lake' 'over' 'area' area = INT 'square' 'meter' 'in' 'region' region = INT  
+|'What' 'will' 'be' 'the' 'temperature' 'if' 'we' 'remove' 'lake' 'over' 'area' area = INT 'square' 'meter' 'in' 'region' region = INT 
+|'What' 'Will' 'Be' 'The' 'Temperature' 'If' 'We' 'Remove' 'Lake' 'Over' 'Area' area = INT 'Square' 'Meter' 'In' 'Region' region = INT 
+|'What' 'Will' 'be' 'the' 'Temperature' 'if' 'we' 'Remove' 'Lake' 'Over' 'Area' area = INT 'Square' 'Meter' 'in' 'Region' region = INT 
+|'WHAT' 'WILL' 'BE' 'THE' 'TEMPERATURE' 'IF' 'WE' 'REMOVE' 'LAKE' 'OVER' 'AREA' area = INT 'SQUARE' 'METER' 'IN' 'REGION' region = INT  
+;
+
+
+
+DesignCommercial:
+'what' 'will' 'be' 'the' 'design' 'plan' 'for' 'commercial' 'area' 'for' no_of_people = INT 'people' 'in' 'region' region = INT
+|'What' 'will' 'be' 'the' 'design' 'plan' 'for' 'commercial' 'area' 'for' no_of_people = INT 'people' 'in' 'region' region = INT
+|'What' 'Will' 'Be' 'The' 'Design' 'Plan' 'For' 'Commercial' 'Area' 'For' no_of_people = INT 'People' 'In' 'Region' region = INT
+|'What' 'Will' 'be' 'the' 'Design' 'Plan' 'for' 'Commercial' 'Area' 'for' no_of_people = INT 'People' 'in' 'Region' region = INT
+|'WHAT' 'WILL' 'BE' 'THE' 'DESIGN' 'PLAN' 'FOR' 'COMMERCIAL' 'AREA' 'FOR' no_of_people = INT 'PEOPLE' 'IN' 'REGION' region = INT
+ ;
+
+
+
+DesignEducational:
+'what' 'will' 'be' 'the' 'design' 'plan' 'for' 'educational' 'area' 'for' no_of_people = INT 'people' 'in' 'region' region = INT
+|'What' 'will' 'be' 'the' 'design' 'plan' 'for' 'educational' 'area' 'for' no_of_people = INT 'people' 'in' 'region' region = INT
+|'What' 'Will' 'Be' 'The' 'Design' 'Plan' 'For' 'Educational' 'Area' 'For' no_of_people = INT 'People' 'In' 'Region' region = INT
+|'What' 'Will' 'be' 'the' 'Design' 'Plan' 'for' 'Educational' 'Area' 'for' no_of_people = INT 'People' 'in' 'Region' region = INT
+|'WHAT' 'WILL' 'BE' 'THE' 'DESIGN' 'PLAN' 'FOR' 'EDUCATIONAL' 'AREA' 'FOR' no_of_people = INT 'PEOPLE' 'IN' 'REGION' region = INT
+ ;
